@@ -57,6 +57,7 @@ typedef struct bot_data_s {
 typedef struct heros_s {
     sfTexture *texture_base;
     npc_t *npc;
+    float speed;
 } heros_t;
 
 /**ENTITY**/
