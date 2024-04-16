@@ -31,6 +31,8 @@ SRC = main.c\
 	src/animations/anim_entity.c\
 	src/init_rpg_struct.c\
 	src/test.c\
+	src/background/init_background.c\
+	src/movements/movements.c
 
 OBJ = $(SRC:.c=.o)
 

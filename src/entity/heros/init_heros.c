@@ -31,6 +31,7 @@ heros_t *init_heros(char *asset)
 {
     heros_t *heros = malloc(sizeof(heros_t));
 
+    heros->speed = 5.f;
     heros->texture_base = sfTexture_createFromFile(asset, NULL);
     heros->npc = init_npc(heros->texture_base);
     set_offset(heros->npc->entity, (sfVector2i){6, 8});
