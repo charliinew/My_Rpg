@@ -55,6 +55,15 @@ typedef struct npc_s {
     sfVector2i action[9];
 } npc_t;
 
+typedef struct deco_data_s {
+    entity_t **tree_tab;
+    entity_t **house_tab;
+    entity_t **mine_tab;
+    sfTexture *text_house;
+    sfTexture *text_tree;
+    sfTexture *text_mine;
+} deco_data_t;
+
 typedef struct bot_data_s {
     npc_t *bot_list[6];
     sfTexture *bot_texture[6];
@@ -95,4 +104,16 @@ npc_t *set_goblins_d(sfTexture *texture);
 npc_t *set_goblins(sfTexture *texture);
 npc_t *set_knight(sfTexture *texture);
 npc_t *set_minions(sfTexture *texture);
+
+/**DECO**/
+deco_data_t *init_deco_data(void);
+void free_deco_data(deco_data_t *deco_data);
+entity_t *create_knight_house(sfVector2f pos, sfTexture *texture);
+entity_t *create_mine(sfVector2f pos, sfTexture *texture);
+entity_t *create_tree_plain(sfVector2f pos, sfTexture *texture);
+void display_deco(deco_data_t *deco_data, sfRenderWindow *window, bool ticks);
+    #define KNIGHT_BUILDINGS "tiny_world_asset/Factions/Knights/Buildings/"
+    #define TREE_SPRITE "tiny_world_asset/Resources/Trees/Tree.png"
+    #define KNIGHT_H_SPRITE KNIGHT_BUILDINGS "House/House_Blue.png"
+    #define MINE_S "tiny_world_asset/Resources/Gold Mine/GoldMine_Inactive.png"
 #endif
