@@ -30,5 +30,6 @@ rpg_t *create_rpg_struct(void)
     rpg->window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
     rpg->heros = init_heros(KNIGHT_SPRITE);
     rpg->bot_data = init_bot_data();
+    init_background(rpg);
     return rpg;
 }
