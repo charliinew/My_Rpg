@@ -8,6 +8,7 @@
 #ifndef PLAYER_H
     #define PLAYER_H
     #include "lib.h"
+    #include <stdbool.h>
 
 typedef enum bot_type_e {
     GOBLINS_T = 0,
@@ -36,8 +37,9 @@ typedef struct entity_s {
     sfVector2f sprite_sheet_size;
     sfVector2f pos;
     sfIntRect rect_sprite;
-    sfRectangleShape *hitbox;
-    sfFloatRect hitbox_dim;
+    sfRectangleShape *colbox;
+    sfFloatRect colbox_dim;
+    int is_reverse;
     int frame_nbr;
 } entity_t;
 
@@ -46,6 +48,8 @@ typedef struct npc_s {
     action_t act_action;
     int pv;
     int attack;
+    sfRectangleShape *hitbox;
+    sfFloatRect hitbox_dim;
     struct npc_s *next;
     struct npc_s *prev;
     sfVector2i action[9];
@@ -75,9 +79,10 @@ heros_t *init_heros(char *asset);
 void destroy_heros(heros_t *heros);
 
 /**OFFSET**/
-void anim_entity(entity_t *entity, sfVector2i offset, float time);
+void anim_entity(entity_t *entity, sfVector2i offset, bool ticks);
 void set_offset(entity_t *entity, sfVector2i size_sprite);
-void set_hitbox(entity_t *entity);
+void set_hitbox(npc_t *npc);
+void set_colbox(entity_t *entity);
 
 /**BOT**/
 bot_data_t *init_bot_data(void);
