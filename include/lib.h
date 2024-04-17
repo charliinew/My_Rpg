@@ -21,6 +21,8 @@
     #include <string.h>
     #include <stdio.h>
     #include "player.h"
+    #include "background.h"
+    #include <stdbool.h>
     #define ABS(x) ((x) < 0 ? x = -(x) : (x))
     #define KNIGHT_ASSET "tiny_world_asset/Factions/Knights/Troops/"
     #define GOBLINS_ASSET "tiny_world_asset/Factions/Goblins/Troops/"

@@ -33,7 +33,11 @@ SRC = main.c\
 	src/init_rpg_struct.c\
 	src/test.c\
 	src/background/init_background.c\
-	src/movements/movements.c
+	src/movements/movements.c\
+	src/event/manage_key/manage_down.c\
+	src/event/manage_key/manage_up.c\
+	src/event/manage_key/manage_left.c\
+	src/event/manage_key/manage_right.c\
 
 OBJ = $(SRC:.c=.o)
 

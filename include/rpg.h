@@ -9,20 +9,19 @@
     #define RPG_H
     #include "button.h"
     #include "lib.h"
-    #include "background.h"
 
-typedef struct background background_t;
-typedef struct sprite_back_t sprite_back_t;
 typedef enum scene_e {
     MAIN = 0,
 }scene_t;
 typedef struct rpg_s {
     heros_t *heros;
-    background_t *back;
+    back_t *back;
     bot_data_t *bot_data;
     int scene;
     sfClock *clock;
     sfEvent event;
+    bool ticks;
+    bool key_state[256];
     int second;
     float time;
     sfRenderWindow *window;
@@ -51,4 +50,10 @@ rpg_t *create_rpg_struct(void);
 
 /**EVENT**/
 void manage_event(rpg_t *rpg);
+void manage_movements(rpg_t *rpg);
+sfSprite *wich_back(rpg_t *rpg);
+void manage_right(rpg_t *rpg);
+void manage_left(rpg_t *rpg);
+void manage_down(rpg_t *rpg);
+void manage_up(rpg_t *rpg);
 #endif
