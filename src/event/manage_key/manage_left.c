@@ -18,7 +18,8 @@ static void moov_left(rpg_t *rpg)
     float left = viewCenter.x - window_width / 2;
     float movement = rpg->heros->speed * rpg->time;
 
-    if (pos.x - movement < 0)
+    if (pos.x - movement < 0 ||
+        static_collisions_left(rpg->heros->npc->entity->colbox, wich_img(rpg)))
         return;
     rpg->heros->npc->entity->pos.x -= movement;
     if (left - movement > 0 && pos.x - movement + (bounds2.x / 2) <

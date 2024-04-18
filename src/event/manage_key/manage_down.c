@@ -18,7 +18,8 @@ static void moov_down(rpg_t *rpg)
     float bottom = viewCenter.y + window_height / 2;
     float movement = rpg->heros->speed * rpg->time;
 
-    if (pos.y + (bounds2.y * 2) + movement > bounds.height)
+    if (pos.y + (bounds2.y * 2) + movement > bounds.height ||
+        static_collisions_down(rpg->heros->npc->entity->colbox, wich_img(rpg)))
         return;
     rpg->heros->npc->entity->pos.y += movement;
     if (pos.y < bounds.height - window_height / 2 && bottom + movement <

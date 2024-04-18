@@ -84,6 +84,7 @@ rpg_t *create_rpg_struct(void);
 void manage_event(rpg_t *rpg);
 void manage_movements(rpg_t *rpg);
 sfSprite *wich_back(rpg_t *rpg);
+sfImage *wich_img(rpg_t *rpg);
 void manage_right(rpg_t *rpg);
 void manage_left(rpg_t *rpg);
 void manage_down(rpg_t *rpg);
