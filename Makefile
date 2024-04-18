@@ -48,6 +48,8 @@ SRC = main.c\
 	src/entity/deco/init_deco_data.c\
 	src/entity/deco/create_knight_house.c\
 	src/entity/deco/display_deco.c\
+	src/collisions/static_collisions.c\
+	src/collisions/hit_collisions.c\
 	src/animations/anim_attack.c
 
 OBJ = $(SRC:.c=.o)

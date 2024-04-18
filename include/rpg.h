@@ -85,6 +85,7 @@ void manage_event(rpg_t *rpg);
 void manage_movements(rpg_t *rpg);
 void manage_heros_attack(heros_t *heros, bool *key_code);
 sfSprite *wich_back(rpg_t *rpg);
+sfImage *wich_img(rpg_t *rpg);
 void manage_right(rpg_t *rpg);
 void manage_left(rpg_t *rpg);
 void manage_down(rpg_t *rpg);
