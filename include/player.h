@@ -10,6 +10,12 @@
     #include "lib.h"
     #include <stdbool.h>
 
+typedef enum deco_type_e {
+    HOUSE_DECO = 0,
+    TREE_DECO,
+    MINE_DECO
+} deco_type_t;
+
 typedef enum bot_type_e {
     GOBLINS_T = 0,
     GOBLINS_D,
@@ -56,12 +62,8 @@ typedef struct npc_s {
 } npc_t;
 
 typedef struct deco_data_s {
-    entity_t **tree_tab;
-    entity_t **house_tab;
-    entity_t **mine_tab;
-    sfTexture *text_house;
-    sfTexture *text_tree;
-    sfTexture *text_mine;
+    entity_t **deco_entity[3];
+    sfTexture *texture[3];
 } deco_data_t;
 
 typedef struct bot_data_s {

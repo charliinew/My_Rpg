@@ -24,24 +24,26 @@ sfVector2f pos_tree_plain[10] = {
 
 void set_deco_data_plain(deco_data_t *deco_data)
 {
-    deco_data->house_tab = malloc(sizeof(entity_t) * 3);
-    deco_data->house_tab[2] = NULL;
-    deco_data->mine_tab = malloc(sizeof(entity_t) * 2);
-    deco_data->mine_tab[1] = NULL;
-    deco_data->tree_tab = malloc(sizeof(entity_t) * 10);
-    deco_data->tree_tab[9] = NULL;
-    deco_data->text_mine = sfTexture_createFromFile(MINE_S, NULL);
-    deco_data->text_tree = sfTexture_createFromFile(TREE_SPRITE, NULL);
-    deco_data->text_house = sfTexture_createFromFile(KNIGHT_H_SPRITE, NULL);
+    deco_data->deco_entity[HOUSE_DECO] = malloc(sizeof(entity_t) * 3);
+    deco_data->deco_entity[HOUSE_DECO][2] = NULL;
+    deco_data->deco_entity[MINE_DECO] = malloc(sizeof(entity_t) * 2);
+    deco_data->deco_entity[MINE_DECO][1] = NULL;
+    deco_data->deco_entity[TREE_DECO] = malloc(sizeof(entity_t) * 10);
+    deco_data->deco_entity[TREE_DECO][9] = NULL;
+    deco_data->texture[MINE_DECO] = sfTexture_createFromFile(MINE_S, NULL);
+    deco_data->texture[TREE_DECO] =
+        sfTexture_createFromFile(TREE_SPRITE, NULL);
+    deco_data->texture[HOUSE_DECO] =
+        sfTexture_createFromFile(KNIGHT_H_SPRITE, NULL);
     for (int i = 0; i < 2; i++)
-        deco_data->house_tab[i] = create_knight_house(
-            pos_house_plain[i], deco_data->text_house);
+        deco_data->deco_entity[HOUSE_DECO][i] = create_knight_house(
+            pos_house_plain[i], deco_data->texture[HOUSE_DECO]);
     for (int i = 0; i < 1; i++)
-        deco_data->mine_tab[i] = create_mine(
-            pos_mine_plain[i], deco_data->text_mine);
+        deco_data->deco_entity[MINE_DECO][i] = create_mine(
+            pos_mine_plain[i], deco_data->texture[MINE_DECO]);
     for (int i = 0; i < 9; i++)
-        deco_data->tree_tab[i] = create_tree_plain(
-        pos_tree_plain[i], deco_data->text_tree);
+        deco_data->deco_entity[TREE_DECO][i] = create_tree_plain(
+        pos_tree_plain[i], deco_data->texture[TREE_DECO]);
 }
 
 biome_t *set_plain(void)
