@@ -9,12 +9,14 @@
 
 static void reset_npc(entity_t *entity, sfRenderWindow *window)
 {
-    npc_t *npc = (npc_t *)entity->parent;
+    npc_t *npc = NULL;
 
-    set_all_box(entity, window);
-    if (npc)
+    if (entity->type == NPC) {
+        npc = (npc_t *)entity->parent;
+        set_all_box(entity, window);
         for (int i = 0; i < 4; i++)
             npc->allowed_dir[i] = true;
+    }
 }
 
 static void begin_from_head(entity_t *head, entity_t *entity)
@@ -121,6 +123,7 @@ void put_entity_in_view_list(
     sfVector2f size = sfView_getSize(view);
     sfFloatRect rect;
 
+    entity->pos = sfSprite_getPosition(entity->sprite);
     rect.left = center.x - size.x / 2;
     rect.top = center.y - size.y / 2;
     rect.width = size.x;

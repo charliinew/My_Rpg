@@ -48,7 +48,7 @@ void bot_generator(biome_t *biome, int *who)
         i++;
         biome->nbr_bot = biome->nbr_bot + 1;
         find_valid_pos(biome->back->collision.col_image, new_bot->entity);
-        manage_animation(new_bot->entity, sfTrue);
+        manage_animation_bot(new_bot->entity, true);
         already_do = 1;
     }
 }

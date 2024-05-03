@@ -11,6 +11,12 @@
     #include <stdbool.h>
     #include "background.h"
 
+typedef enum entity_type_e {
+    WHITOUT = 0,
+    NPC,
+    OBJ
+}entity_type_t;
+
 typedef enum direction_e {
     RIGHT = 0,
     LEFT,
@@ -55,6 +61,7 @@ typedef struct entity_s {
     sfVector2f size;
     sfVector2f sprite_sheet_size;
     sfVector2f pos;
+    effect_t **effect_tab;
     int level;
     sfIntRect rect_sprite;
     sfRectangleShape *colbox;
@@ -65,6 +72,8 @@ typedef struct entity_s {
     struct entity_s *next;
     int is_reverse;
     int frame_nbr;
+    entity_type_t type;
+
 } entity_t;
 
 typedef struct npc_s {
@@ -100,6 +109,7 @@ typedef struct bot_data_s {
 
 typedef struct heros_s {
     sfTexture *texture_base;
+    back_obj_t *inventory;
     npc_t *npc;
     float speed;
 } heros_t;
@@ -113,7 +123,7 @@ npc_t *init_npc(sfTexture *asset);
 void destroy_npc(npc_t *npc);
 
 /**HEROS**/
-heros_t *init_heros(char *asset);
+heros_t *init_heros(sfTexture **texture);
 void destroy_heros(heros_t *heros);
 
 /**OFFSET**/
@@ -123,10 +133,9 @@ void set_offset(entity_t *entity, sfVector2i size_sprite);
 void set_box(
     sfRectangleShape *rect, sfFloatRect floatrect, entity_t *entity);
 void set_all_box(entity_t *entity, sfRenderWindow *window);
-void manage_animation(entity_t *entity, bool ticks);
 
 /**BOT**/
-bot_data_t *init_bot_data(void);
+bot_data_t *init_bot_data(sfTexture **text_tab);
 npc_t *set_archer(sfTexture *texture);
 void free_bot_data(bot_data_t *bot_data);
 void free_bot_list(npc_t *npc);
@@ -139,6 +148,7 @@ npc_t *set_minions(sfTexture *texture);
 void manage_bot(entity_t *entity, heros_t *heros);
 void check_if_heros_attack_me(npc_t *to_check, heros_t *heros);
 void check_chase_heros(npc_t *to_check, heros_t *heros);
+void manage_animation_bot(entity_t *entity, bool ticks);
 
 /**DECO**/
 deco_data_t *init_deco_data(void);
