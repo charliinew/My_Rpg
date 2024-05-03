@@ -50,7 +50,8 @@ SRC = main.c\
 	src/entity/deco/display_deco.c\
 	src/collisions/static_collisions.c\
 	src/collisions/hit_collisions.c\
-	src/animations/anim_attack.c
+	src/animations/anim_attack.c \
+	src/menu/menu.c \
 
 OBJ = $(SRC:.c=.o)
 

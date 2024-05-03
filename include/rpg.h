@@ -9,6 +9,7 @@
     #define RPG_H
     #include "button.h"
     #include "lib.h"
+    #include "menu.h"
 
 typedef enum scene_e {
     PLAIN = 0,
@@ -18,9 +19,11 @@ typedef enum scene_e {
     MINE,
     MAIN
 }scene_t;
+
 typedef struct rpg_s {
     heros_t *heros;
     biome_t *biome[5];
+    menu_t *start_menu;
     int scene;
     sfClock *clock;
     sfEvent event;
@@ -67,6 +70,7 @@ typedef struct rpg_s {
     #define MINIONS_LIST_CAM rpg->biome[CAMP]->bot_data->bot_list[MINIONS]
 
 void test(rpg_t *rpg);
+void start_menu(rpg_t *rpg);
 
 /**TOOLS**/
 int my_strncmp(char const *s1, char const *s2, int len);

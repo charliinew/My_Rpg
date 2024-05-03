@@ -11,6 +11,8 @@ void which_scene(rpg_t *rpg)
 {
     if (rpg->scene == PLAIN)
         test(rpg);
+    if (rpg->scene == MAIN)
+        start_menu(rpg);
 }
 
 void init_clock(rpg_t *rpg)
