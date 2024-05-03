@@ -21,12 +21,13 @@
     #include <string.h>
     #include <stdbool.h>
     #include <stdio.h>
+    #include "object.h"
     #include "effect.h"
     #include "player.h"
     #include "background.h"
     #include <time.h>
     #include <math.h>
-    #include <biome.h>
+    #include "biome.h"
     #include "collisions.h"
     #define ABS(x) ((x) < 0 ? x = -(x) : (x))
     #define KNIGHT_ASSET "tiny_world_asset/Factions/Knights/Troops/"
@@ -52,5 +53,6 @@
     #define TREE_SPRITE "tiny_world_asset/Resources/Trees/Tree.png"
     #define KNIGHT_H_SPRITE KNIGHT_BUILDINGS "House/House_Blue.png"
     #define MINE_S "tiny_world_asset/Resources/Gold Mine/GoldMine_Active.png"
+    #define BAG_PATH "tiny_world_asset/Resources/Resources/G_Spawn.png"
 
 #endif

@@ -66,6 +66,10 @@ SRC = main.c\
 	src/set_all_texture.c\
 	src/animations/anim_effect_long.c\
 	src/animations/anim_effect_short.c\
+	src/object/create_object.c\
+	src/object/obj_tab.c\
+	src/animations/anim_obj_short.c\
+	src/object/manage_obj.c\
 
 OBJ = $(SRC:.c=.o)
 

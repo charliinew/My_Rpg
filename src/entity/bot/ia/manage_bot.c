@@ -18,7 +18,7 @@ void manage_bot(entity_t *entity, heros_t *heros)
     check_if_heros_attack_me(npc_act, heros);
     for (entity_t *curr = entity; curr; curr = curr->next) {
         npc_to_check = (npc_t *)(curr->parent);
-        if (npc_to_check)
+        if (npc_to_check && entity->type == NPC)
             check_dynamic_col(npc_act, npc_to_check);
     }
 }

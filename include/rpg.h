@@ -31,6 +31,7 @@ typedef enum texture_type_e {
     CASTLE_COLISION_TEXT,
     KNIGHT_HOUSE_TEXT,
     TREE_SPRITE_TEXT,
+    BAG_TEXT,
     MINE_TEXT
 } texture_type_t;
 
@@ -52,7 +53,7 @@ typedef struct rpg_s {
     bool key_state[256];
     int second;
     float time;
-    sfTexture *text_tab[21];
+    sfTexture *text_tab[22];
     sfRenderWindow *window;
 } rpg_t;
 

@@ -14,11 +14,16 @@ void biome_loop(rpg_t *rpg, biome_t *biome)
 {
     heros_t *heros = rpg->heros;
     static int test = 0;
+    static int i = 0;
 
+    if (rpg->ticks)
+        i++;
     if (test == 0) {
         create_bot(GOBLINS_T, biome->bot_data, (sfVector2f){1000, 1000});
         test++;
     }
+    if (rpg->key_state[sfKeyB])
+        heros->npc->entity->effect_tab[LEVEL_UP_HEROS]->active = true;
     srand(time(NULL));
     display_background(biome->back, rpg->window);
     sort_entity_in_view(biome, rpg->window, heros);

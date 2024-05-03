@@ -11,6 +11,12 @@
     #include <stdbool.h>
     #include "background.h"
 
+typedef enum entity_type_e {
+    WHITOUT = 0,
+    NPC,
+    OBJ
+}entity_type_t;
+
 typedef enum direction_e {
     RIGHT = 0,
     LEFT,
@@ -66,6 +72,8 @@ typedef struct entity_s {
     struct entity_s *next;
     int is_reverse;
     int frame_nbr;
+    entity_type_t type;
+
 } entity_t;
 
 typedef struct npc_s {
@@ -101,6 +109,7 @@ typedef struct bot_data_s {
 
 typedef struct heros_s {
     sfTexture *texture_base;
+    back_obj_t *inventory;
     npc_t *npc;
     float speed;
 } heros_t;
@@ -124,7 +133,6 @@ void set_offset(entity_t *entity, sfVector2i size_sprite);
 void set_box(
     sfRectangleShape *rect, sfFloatRect floatrect, entity_t *entity);
 void set_all_box(entity_t *entity, sfRenderWindow *window);
-void manage_animation(entity_t *entity, bool ticks);
 
 /**BOT**/
 bot_data_t *init_bot_data(sfTexture **text_tab);
@@ -140,6 +148,7 @@ npc_t *set_minions(sfTexture *texture);
 void manage_bot(entity_t *entity, heros_t *heros);
 void check_if_heros_attack_me(npc_t *to_check, heros_t *heros);
 void check_chase_heros(npc_t *to_check, heros_t *heros);
+void manage_animation_bot(entity_t *entity, bool ticks);
 
 /**DECO**/
 deco_data_t *init_deco_data(void);

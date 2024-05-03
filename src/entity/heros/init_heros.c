@@ -7,8 +7,23 @@
 
 #include "rpg.h"
 
+static void destroy_inventory(back_obj_t **list)
+{
+    back_obj_t *next = NULL;
+    back_obj_t *curr = *list;
+
+    while (curr) {
+        next = curr->next;
+        destroy_back_obj(curr);
+        curr = next;
+    }
+    *list = NULL;
+}
+
 void destroy_heros(heros_t *heros)
 {
+    if (heros->inventory)
+        destroy_inventory(&(heros->inventory));
     destroy_npc(heros->npc);
     free(heros);
 }
@@ -39,7 +54,7 @@ effect_t **create_effect_tab_heros(sfTexture **text_tab)
     effect_t **effect_tab = malloc(sizeof(effect_t *) * 2);
 
     effect_tab[LEVEL_UP_HEROS] = create_effect(
-        text_tab[LEVEL_UP_TEXT], false, (sfVector2i){7, 1});
+        text_tab[LEVEL_UP_TEXT], true, (sfVector2i){7, 1});
     effect_tab[1] = NULL;
     return (effect_tab);
 }

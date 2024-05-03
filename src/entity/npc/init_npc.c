@@ -43,6 +43,7 @@ void init_npc_next(npc_t *npc)
     for (int i = 0; i < 4; i++)
         npc->allowed_dir[i] = true;
     npc->in_chase = false;
+    npc->entity->type = NPC;
     npc->view = 0;
 }
 

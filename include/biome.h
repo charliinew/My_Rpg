@@ -15,8 +15,10 @@ typedef struct biome_s {
     deco_data_t *deco_data;
     int bot_type[6];
     int nbr_bot;
+    front_obj_t *obj_list;
     entity_t *entity_in_view_head;
     entity_t *entity_in_view_tail;
+    sfTexture **text_tab;
 } biome_t;
 
 biome_t *create_biome(int biome_type, sfTexture **text_tab);

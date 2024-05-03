@@ -32,6 +32,7 @@ sfRectangleShape *init_colbox_rect(void)
 entity_t *init_entity_next(entity_t *entity)
 {
     entity->effect_tab = NULL;
+    entity->type = WHITOUT;
     return (entity);
 }
 
