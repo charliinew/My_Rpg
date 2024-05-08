@@ -43,10 +43,10 @@ void destroy_rpg(rpg_t *rpg)
 rpg_t *init_rpg_next(rpg_t *rpg)
 {
     set_all_font(rpg->font_tab);
+    rpg->save_scene = init_load_page(rpg->text_tab);
     memset(&(rpg->mouse_data), 0, sizeof(mouse_data_t));
     rpg->save_list = NULL;
     create_file_list(rpg);
-    rpg->save_scene = init_load_page(rpg->save_list, rpg->text_tab);
     return (rpg);
 }
 
