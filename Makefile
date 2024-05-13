@@ -99,6 +99,7 @@ SRC = main.c\
 	src/entity/quest_giver/manage_quest_giver.c\
 	src/entity/quest_giver/next_quest.c\
 	src/save/appli_save_quest.c\
+	src/entity/bot/ia/attack_bot.c\
 	src/portal/check_open_portal.c\
 	src/quest/check_end_quest.c\
 
