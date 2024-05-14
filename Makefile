@@ -100,7 +100,9 @@ SRC = main.c\
 	src/entity/quest_giver/next_quest.c\
 	src/save/appli_save_quest.c\
 	src/inventory/init_inventory.c\
-	src/inventory/inventory.c
+	src/inventory/inventory.c\
+	src/inventory/slots/init_slots.c\
+	src/inventory/slots/set_slots.c
 
 OBJ = $(SRC:.c=.o)
 

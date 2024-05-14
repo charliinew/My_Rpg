@@ -24,7 +24,6 @@ void destroy_heros(heros_t *heros)
 {
     if (heros->inventory)
         destroy_obj(&(heros->inventory));
-    destroy_inventory(&heros->invent);
     for (int i = 0; i <= STAMINA_BAR; i++)
         destroy_info_bar(heros->bar_tab[i]);
     sfText_destroy(heros->interact);
@@ -69,9 +68,8 @@ effect_t **create_effect_tab_heros(
 }
 
 static void init_heros_next_two(
-    heros_t *heros, sfTexture **texture_tab, sfFont **font_tab)
+    heros_t *heros, sfTexture **, sfFont **font_tab)
 {
-    init_inventory(&heros->invent, texture_tab);
     heros->can_interact = false;
     heros->interact = sfText_create();
     sfText_setString(heros->interact, "Press \"Key E\"");

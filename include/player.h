@@ -7,7 +7,6 @@
 
 #ifndef PLAYER_H
     #define PLAYER_H
-    #include "inventory.h"
     #include "lib.h"
     #include <stdbool.h>
     #include "background.h"
@@ -131,7 +130,6 @@ typedef struct heros_s {
     float stamina_max;
     float stami_per_sec;
     float pv_max;
-    inventory_t invent;
     back_obj_t *inventory;
     info_bar_t *bar_tab[3];
     npc_t *npc;
