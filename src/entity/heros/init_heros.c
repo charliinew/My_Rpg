@@ -105,11 +105,21 @@ static heros_t *init_heros_next(
     return (heros);
 }
 
+static void set_variable_heros(heros_t *heros)
+{
+    sfFloatRect hitbox = {30, 25, 55, 55};
+    sfFloatRect colbox = {40, 60, 80, 90};
+
+    heros->inventory = NULL;
+    heros->npc->special = HEROS;
+    heros->npc->entity->colbox_dim = colbox;
+    heros->npc->hitbox_dim = hitbox;
+    heros->npc->projectile = NULL;
+}
+
 heros_t *init_heros(sfTexture **text_tab, sfFont **font_tab)
 {
     heros_t *heros = malloc(sizeof(heros_t));
-    sfFloatRect hitbox = {30, 25, 55, 55};
-    sfFloatRect colbox = {40, 60, 80, 90};
 
     heros->speed = 200.f;
     heros->texture_base = text_tab[KNIGHT_TEXT];
@@ -122,9 +132,6 @@ heros_t *init_heros(sfTexture **text_tab, sfFont **font_tab)
     set_attbox_dim_heros(heros->npc);
     heros->npc->entity->effect_tab = create_effect_tab_heros(
         text_tab, heros->npc->entity->sprite);
-    heros->inventory = NULL;
-    heros->npc->special = HEROS;
-    heros->npc->entity->colbox_dim = colbox;
-    heros->npc->hitbox_dim = hitbox;
+    set_variable_heros(heros);
     return init_heros_next(heros, text_tab, font_tab);
 }

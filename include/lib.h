@@ -34,6 +34,7 @@
     #include "background.h"
     #include <time.h>
     #include <math.h>
+    #include "projectile.h"
     #include "biome.h"
     #include "collisions.h"
     #include "tuto.h"
@@ -80,6 +81,8 @@
     #define CAMP_BOSS_PATH "boss_asset/Torch_Purple.png"
     #define MINE_BOSS_PATH "boss_asset/TNT_Yellow.png"
     #define CASTLE_BOSS_PATH "boss_asset/Warrior_Purple.png"
+    #define ARROWS "tiny_world_asset/Factions/Knights/Troops/Archer/Arrow.png"
+    #define DYNAMITE "tiny_world_asset/Factions/Goblins/Troops/TNT/Dyna.png"
     #define ARENE_PATH "biome_asset/Arène.png"
     #define ARENE_COL_PATH "biome_asset/FondArene.png"
     #define EXPLO_PATH "tiny_world_asset/Effects/Explosion/Explosions.png"

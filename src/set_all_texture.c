@@ -69,6 +69,8 @@ void set_all_texture_next_three(sfTexture **text_tab)
     text_tab[ARENE_TEXT] = sfTexture_createFromFile(
         ARENE_PATH, NULL);
     text_tab[EXPLO_TEXT] = sfTexture_createFromFile(EXPLO_PATH, NULL);
+    text_tab[ARROW_TEXT] = sfTexture_createFromFile(ARROWS, NULL);
+    text_tab[DYNA_TEXT] = sfTexture_createFromFile(DYNAMITE, NULL);
 }
 
 void set_all_texture(sfTexture **text_tab)

@@ -55,6 +55,8 @@ typedef enum texture_type_e {
     ARENE_TEXT,
     ARENE_COL_TEXT,
     EXPLO_TEXT,
+    ARROW_TEXT,
+    DYNA_TEXT,
     MINE_TEXT
 } texture_type_t;
 

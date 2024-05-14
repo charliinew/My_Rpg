@@ -112,6 +112,8 @@ SRC = main.c\
 	src/tuto/quest/manage_quest_tuto.c\
 	src/tuto/quest/check_if_pressed_touch.c\
 	src/tuto/quest/start_test_t.c\
+	src/attack/projectile/manage_projectile.c\
+	src/attack/projectile/init_pro_bot.c\
 
 OBJ = $(SRC:.c=.o)
 

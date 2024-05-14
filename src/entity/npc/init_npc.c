@@ -15,6 +15,7 @@ void destroy_npc(npc_t *npc)
     sfRectangleShape_destroy(npc->hitbox);
     for (int i = 0; i <= ATTACK_R; i++)
         sfRectangleShape_destroy(npc->attbox[i]);
+    destroy_projectile(npc->projectile);
     free(npc);
 }
 
@@ -75,6 +76,8 @@ npc_t *init_npc(sfTexture *asset)
     npc->pv = 0;
     npc->entity = init_entity(asset);
     npc->act_action = STAND;
+    npc->projectile = NULL;
+    npc->end_attack = false;
     init_variable_npc(npc);
     for (int i = 0; i <= ATTACK_R; i++) {
         npc->attbox[i] = init_attbox_rect();
