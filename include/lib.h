@@ -34,6 +34,7 @@
     #include "background.h"
     #include <time.h>
     #include <math.h>
+    #include "projectile.h"
     #include "biome.h"
     #include "collisions.h"
     #define ABS(x) ((x) < 0 ? x = -(x) : (x))
@@ -79,4 +80,5 @@
     #define CAMP_BOSS_PATH "boss_asset/Torch_Purple.png"
     #define MINE_BOSS_PATH "boss_asset/TNT_Yellow.png"
     #define CASTLE_BOSS_PATH "boss_asset/Warrior_Purple.png"
+    #define ARROWS "tiny_world_asset/Factions/Knights/Troops/Archer/Arrow.png"
 #endif

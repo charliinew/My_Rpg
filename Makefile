@@ -102,6 +102,8 @@ SRC = main.c\
 	src/entity/bot/ia/attack_bot.c\
 	src/portal/check_open_portal.c\
 	src/quest/check_end_quest.c\
+	src/attack/projectile/manage_projectile.c\
+	src/attack/projectile/init_pro_bot.c\
 
 OBJ = $(SRC:.c=.o)
 
