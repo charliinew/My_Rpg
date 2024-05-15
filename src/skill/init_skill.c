@@ -19,7 +19,7 @@ skill_t *init_skill(void)
 {
     skill_t *skill = malloc(sizeof(skill_t));
 
-    skill->act_skill = -1;
+    skill->act_skill = RUN;
     skill->skill_tab[FIRE_BALL] = init_fire_ball();
     skill->skill_tab[SHIELD] = init_shield();
     skill->skill_tab[RUN] = init_run();

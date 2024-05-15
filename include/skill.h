@@ -32,6 +32,7 @@ typedef struct fire_ball_s {
 
 typedef struct run_s {
     int level;
+    bool active;
     float speed_multi;
     int stamina;
 } run_t;
@@ -55,4 +56,7 @@ run_t *init_run(void);
 skill_t *init_skill(void);
 void destroy_skill(skill_t *skill);
 void manage_skill(heros_t *heros, rpg_t *rpg);
+
+/**SHIELD**/
+bool absorb_hit(void *skill_data, heros_t *heros);
 #endif
