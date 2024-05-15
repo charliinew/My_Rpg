@@ -11,6 +11,25 @@
 #include <SFML/System/Vector2.h>
 #include <stdio.h>
 
+void draw_slots(rpg_t *rpg, inventory_t *inventory)
+{
+    for (unsigned char i = 0; i < NUM_SLOT; i++) {
+        sfRenderWindow_drawSprite(rpg->window,
+        inventory->slot[i].button->sprite, NULL);
+        if (inventory->slot[i].obj == NULL)
+            continue;
+        sfRenderWindow_drawSprite(rpg->window, inventory->slot[i].obj->sprite,
+        NULL);
+    }
+}
+
+static void set_obj_pos(back_obj_t *obj, sfVector2f *pos)
+{
+    if (obj == NULL)
+        return;
+    sfSprite_setPosition(obj->sprite, *pos);
+}
+
 void set_slot_pos(rpg_t *rpg, sfFloatRect *background_pos)
 {
     sfVector2f pos;
@@ -27,7 +46,6 @@ void set_slot_pos(rpg_t *rpg, sfFloatRect *background_pos)
         button_pos.y += pos.y;
         sfSprite_setPosition(rpg->inventory.slot[i].button->sprite,
         button_pos);
-        sfRenderWindow_drawSprite(rpg->window,
-        rpg->inventory.slot[i].button->sprite, NULL);
+        set_obj_pos(rpg->inventory.slot[i].obj, &button_pos);
     }
 }

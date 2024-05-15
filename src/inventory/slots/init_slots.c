@@ -64,10 +64,13 @@ void init_slots(inventory_t *inventory, sfTexture **texture_tab)
     int text_index[5] = {INVENTORY_SLOT_TEXT, -1, -1, -1, -1};
 
     for (unsigned char i = 0; i < NUM_SLOT; i++) {
+        inventory->slot[i].obj = NULL;
         inventory->slot[i].button = create_button(texture_tab, text_index);
         init_action_button(NULL, NULL, NULL, inventory->slot[i].button);
         sfSprite_setScale(inventory->slot[i].button->sprite,
-        (sfVector2f){1.0, 1.0});
+        (sfVector2f){1.2, 1.2});
     }
     init_slot_pos(inventory);
+    inventory->slot_rect =
+    sfSprite_getGlobalBounds(inventory->slot[0].button->sprite);
 }

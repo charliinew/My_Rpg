@@ -47,4 +47,14 @@ void manage_inventory(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->window, rpg->inventory.background, NULL);
     set_slot_pos(rpg, &pos);
     inventory_slot_management(&rpg->inventory, &rpg->mouse_data);
+    draw_slots(rpg, &rpg->inventory);
+}
+
+slot_t *get_free_slot(inventory_t *inventory)
+{
+    for (unsigned char i = 0; i < NUM_SLOT; i++) {
+        if (inventory->slot[i].obj == NULL)
+            return &inventory->slot[i];
+    }
+    return NULL;
 }
