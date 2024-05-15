@@ -53,6 +53,16 @@ typedef enum texture_type_e {
     INVENTORY_TEXT,
     INVENTORY_SLOT_TEXT,
     MINE_TEXT,
+    CAMP_BOSS_TEXT,
+    MINE_BOSS_TEXT,
+    CASTLE_BOSS_TEXT,
+    ARENE_TEXT,
+    ARENE_COL_TEXT,
+    EXPLO_TEXT,
+    ARROW_TEXT,
+    DYNA_TEXT,
+    SHIELD_TEXT,
+    MINE_TEXT
 } texture_type_t;
 
 typedef enum scene_e {
@@ -61,6 +71,7 @@ typedef enum scene_e {
     CAMP,
     VILLAGE,
     MINE,
+    TUTO,
     SAVE,
     MAIN
 }scene_t;
@@ -69,9 +80,10 @@ typedef struct rpg_s {
     heros_t *heros;
     save_t *save_list;
     biome_t *biome[5];
+    tuto_t *tuto;
     save_scene_t *save_scene;
     mouse_data_t mouse_data;
-    quest_t quest_tab[3];
+    quest_t quest_tab[4];
     int scene;
     sfClock *clock;
     sfEvent event;
@@ -170,4 +182,10 @@ void entity_loop(
 /**QUEST_GIVER**/
 void manage_quest_giver(
     quest_t *quest_tab, quest_giver_t *quest_g, rpg_t *rpg);
+void check_open_portal(rpg_t *rpg);
+void check_end_quest(rpg_t *rpg);
+
+/**TUTO**/
+void tuto_loop(rpg_t *rpg);
+void manage_skip_button(button_t *button, rpg_t *rpg);
 #endif
