@@ -13,6 +13,7 @@ typedef enum heros_effect_e {
     LEVEL_UP_HEROS = 0,
     EXPLO_HEROS,
     BLOOD_HEROS,
+    SHIELD_HEROS,
     PICK_HEROS,
 } heros_effect_t;
 

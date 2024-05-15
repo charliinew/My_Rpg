@@ -27,6 +27,7 @@ void destroy_heros(heros_t *heros)
     for (int i = 0; i <= STAMINA_BAR; i++)
         destroy_info_bar(heros->bar_tab[i]);
     sfText_destroy(heros->interact);
+    destroy_skill(heros->skill);
     destroy_npc(heros->npc);
     free(heros);
 }
@@ -55,7 +56,7 @@ void set_attbox_dim_heros(npc_t *npc)
 effect_t **create_effect_tab_heros(
     sfTexture **text_tab, sfSprite *heros_sprite)
 {
-    effect_t **effect_tab = malloc(sizeof(effect_t *) * 5);
+    effect_t **effect_tab = malloc(sizeof(effect_t *) * 6);
 
     effect_tab[LEVEL_UP_HEROS] = create_effect(
         text_tab[LEVEL_UP_TEXT], true, (sfVector2i){7, 1}, heros_sprite);
@@ -65,7 +66,9 @@ effect_t **create_effect_tab_heros(
         text_tab[COIN_TEXT], true, (sfVector2i){7, 1}, heros_sprite);
     effect_tab[EXPLO_HEROS] = create_effect(
         text_tab[EXPLO_TEXT], true, (sfVector2i){9, 1}, heros_sprite);
-    effect_tab[4] = NULL;
+    effect_tab[SHIELD_HEROS] = create_effect(
+        text_tab[SHIELD_TEXT], false, (sfVector2i){12, 1}, heros_sprite);
+    effect_tab[5] = NULL;
     return (effect_tab);
 }
 
@@ -78,6 +81,7 @@ static void init_heros_next_two(
     sfText_setFont(heros->interact, font_tab[PIXEL]);
     sfText_setOutlineColor(heros->interact, sfBlack);
     sfText_setOutlineThickness(heros->interact, 2);
+    heros->skill = init_skill();
 }
 
 static heros_t *init_heros_next(

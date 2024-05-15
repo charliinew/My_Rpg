@@ -114,6 +114,11 @@ SRC = main.c\
 	src/tuto/quest/start_test_t.c\
 	src/attack/projectile/manage_projectile.c\
 	src/attack/projectile/init_pro_bot.c\
+	src/skill/init_fire_ball.c\
+	src/skill/init_shield.c\
+	src/skill/init_run.c\
+	src/skill/init_skill.c\
+	src/skill/manage_skill.c\
 
 OBJ = $(SRC:.c=.o)
 

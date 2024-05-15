@@ -50,6 +50,7 @@ void manage_interact(heros_t *heros, sfRenderWindow *window)
 
 void manage_heros(heros_t *heros, rpg_t *rpg)
 {
+    manage_skill(heros, rpg);
     manage_movements(rpg);
     manage_heros_attack(heros, rpg->key_state);
     if (heros->can_interact)

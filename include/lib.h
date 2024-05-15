@@ -30,6 +30,7 @@
     #include "info_bar.h"
     #include "object.h"
     #include "effect.h"
+    #include "skill.h"
     #include "player.h"
     #include "background.h"
     #include <time.h>
@@ -86,4 +87,5 @@
     #define ARENE_PATH "biome_asset/Arène.png"
     #define ARENE_COL_PATH "biome_asset/FondArene.png"
     #define EXPLO_PATH "tiny_world_asset/Effects/Explosion/Explosions.png"
+    #define SHIELD_PATH "effect_asset/shield.png"
 #endif
