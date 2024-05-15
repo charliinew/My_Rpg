@@ -135,7 +135,9 @@ typedef struct quest_giver_s {
 
 typedef struct heros_s {
     sfTexture *texture_base;
+    skill_t *skill;
     sfText *interact;
+    bool restore;
     bool can_interact;
     int level_act;
     float stamina;
@@ -146,6 +148,7 @@ typedef struct heros_s {
     info_bar_t *bar_tab[3];
     npc_t *npc;
     float speed;
+    float multi_speed;
 } heros_t;
 
 /**ENTITY**/

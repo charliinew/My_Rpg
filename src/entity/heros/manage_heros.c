@@ -9,7 +9,13 @@
 
 void recovery_stamina(heros_t *heros, float time)
 {
-    if (heros->stamina < heros->stamina_max) {
+    run_t *run = (run_t *)heros->skill->skill_tab[RUN];
+
+    if (heros->stamina < 1)
+        heros->restore = true;
+    if (heros->stamina > heros->stamina_max / 4)
+        heros->restore = false;
+    if (heros->stamina < heros->stamina_max && !(run->active)) {
         heros->stamina += heros->stami_per_sec * time;
         if (heros->stamina > heros->stamina_max)
             heros->stamina = heros->stamina_max;
@@ -50,6 +56,7 @@ void manage_interact(heros_t *heros, sfRenderWindow *window)
 
 void manage_heros(heros_t *heros, rpg_t *rpg)
 {
+    manage_skill(heros, rpg);
     manage_movements(rpg);
     manage_heros_attack(heros, rpg->key_state);
     if (heros->can_interact)

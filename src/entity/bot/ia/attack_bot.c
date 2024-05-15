@@ -23,6 +23,10 @@ static void lunch_attack(npc_t *npc_act, int i, heros_t *heros)
 
 static void check_touch_heros(npc_t *npc_act, heros_t *heros)
 {
+    if (absorb_hit(heros->skill->skill_tab[SHIELD], heros)) {
+        npc_act->cur_attack = false;
+        return;
+    }
     heros->npc->pv -= npc_act->damage;
     npc_act->cur_attack = false;
     heros->npc->entity->effect_tab[BLOOD_HEROS]->active = true;

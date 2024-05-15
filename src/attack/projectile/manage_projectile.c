@@ -66,6 +66,10 @@ static void rotation_dyna(projectile_t *proj)
 static void colision_projectile(npc_t *npc, heros_t *heros)
 {
     if (col_hitbox(npc->projectile->hitbox, heros->npc->hitbox)) {
+        if (absorb_hit(heros->skill->skill_tab[SHIELD], heros)) {
+            npc->projectile->active = 0;
+            return;
+        }
         npc->projectile->active = 0;
         heros->npc->pv -= npc->damage;
         heros->npc->entity->effect_tab[BLOOD_HEROS]->active = true;
