@@ -104,6 +104,8 @@ SRC = main.c\
 	src/menu/menu.c \
 	src/param/init_param_struct.c\
 	src/param/manage_param_button.c\
+	src/param/manage_display_param_button.c\
+	src/param/param_display.c\
 	src/param/param.c\
 
 

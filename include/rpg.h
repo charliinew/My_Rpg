@@ -81,8 +81,15 @@ typedef enum texture_type_e {
     BACK_PARAM_E,
     RIBBONS_PARAM_E,
     RIBBONS_PARAM_PRESSED_E,
-    PAGE_BORDER_PARAM_E,
     PAGE_PARAM_E,
+    BUTTON_FULL_E,
+    BUTTON_FULL_PRESSED_E,
+    BUTTON_WINDOW_PRESSED_E,
+    BUTTON_WINDOW_E,
+    R1920x1080_E,
+    R1280x720_E,
+    R850x480_E,
+    RES_SELECTION_E,
     MINE_TEXT
 } texture_type_t;
 
@@ -114,7 +121,7 @@ typedef struct rpg_s {
     bool key_state[256];
     int second;
     float time;
-    sfTexture *text_tab[68];
+    sfTexture *text_tab[100];
     sfFont *font_tab[1];
     sfRenderWindow *window;
 } rpg_t;
