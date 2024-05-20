@@ -19,6 +19,7 @@ void which_scene(rpg_t *rpg)
         tuto_loop(rpg);
         manage_heros_bar(rpg->heros, rpg->window);
     }
+    update_game_over(rpg->end, rpg);
     if (rpg->scene == SAVE) {
         load_page(rpg);
     }

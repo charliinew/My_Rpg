@@ -123,6 +123,7 @@ SRC = main.c\
 	src/skill/init_run.c\
 	src/skill/init_skill.c\
 	src/skill/manage_skill.c\
+	src/game_over/game_over.c\
 
 OBJ = $(SRC:.c=.o)
 
