@@ -10,6 +10,7 @@
     #include "button.h"
     #include "lib.h"
     #include "menu.h"
+    #include "params.h"
 
 typedef enum font_type_e {
     PIXEL = 0
@@ -50,6 +51,38 @@ typedef enum texture_type_e {
     LIFE_B_TEXT,
     ENERGY_B_TEXT,
     XP_B_TEXT,
+    MENU_1,
+    MENU_2,
+    MENU_3,
+    MENU_4,
+    MENU_5,
+    MENU_6,
+    MENU_7,
+    MENU_8,
+    MENU_9,
+    MENU_10,
+    MENU_11,
+    MENU_12,
+    PLAY_E,
+    PLAY_PRESSED_E,
+    PLAY_HOVER_E,
+    B_SAVE_E,
+    B_SAVE_PRESSED_E,
+    B_SAVE_HOVER_E,
+    NEW_E,
+    NEW_PRESSED_E,
+    NEW_HOVER_E,
+    PARAM_E,
+    PARAM_PRESSED_E,
+    PARAM_HOVER_E,
+    QUIT_E,
+    QUIT_PRESSED_E,
+    QUIT_HOVER_E,
+    BACK_PARAM_E,
+    RIBBONS_PARAM_E,
+    RIBBONS_PARAM_PRESSED_E,
+    PAGE_BORDER_PARAM_E,
+    PAGE_PARAM_E,
     MINE_TEXT
 } texture_type_t;
 
@@ -61,6 +94,7 @@ typedef enum scene_e {
     MINE,
     SAVE,
     MENU,
+    PARAMS,
     MAIN
 }scene_t;
 
@@ -69,6 +103,7 @@ typedef struct rpg_s {
     save_t *save_list;
     biome_t *biome[5];
     menu_t *start_menu;
+    param_t *params;
     save_scene_t *save_scene;
     mouse_data_t mouse_data;
     quest_t quest_tab[3];
@@ -79,7 +114,7 @@ typedef struct rpg_s {
     bool key_state[256];
     int second;
     float time;
-    sfTexture *text_tab[63];
+    sfTexture *text_tab[68];
     sfFont *font_tab[1];
     sfRenderWindow *window;
 } rpg_t;

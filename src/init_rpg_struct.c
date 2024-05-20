@@ -59,6 +59,7 @@ rpg_t *create_rpg_struct(void)
     sfVideoMode mode = {1920, 1080, 32};
 
     rpg->start_menu = create_menu_struct(rpg);
+    rpg->params = init_param_struct(rpg->text_tab);
     rpg->clock = sfClock_create();
     rpg->scene = MENU;
     rpg->second = 0;

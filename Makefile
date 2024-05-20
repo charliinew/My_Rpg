@@ -102,6 +102,9 @@ SRC = main.c\
 	src/menu/init_menu_struct.c\
 	src/menu/manage_menu_button.c\
 	src/menu/menu.c \
+	src/param/init_param_struct.c\
+	src/param/manage_param_button.c\
+	src/param/param.c\
 
 
 OBJ = $(SRC:.c=.o)
