@@ -90,7 +90,6 @@ rpg_t *create_rpg_struct(void)
         return NULL;
     rpg->clock = sfClock_create();
     rpg->scene = TUTO;
-    set_all_font(rpg->font_tab);
     rpg->window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
     sfRenderWindow_setPosition(rpg->window, (sfVector2i){0, 0});
     rpg->heros = init_heros(rpg->text_tab, rpg->font_tab);
