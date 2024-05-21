@@ -94,6 +94,7 @@ typedef struct rpg_s {
     sfTexture *text_tab[MINE_TEXT + 1];
     sfFont *font_tab[1];
     inventory_t inventory;
+    game_over_t *end;
     sfRenderWindow *window;
 } rpg_t;
 
