@@ -20,7 +20,8 @@ static void display_menu_back(rpg_t *rpg)
     }
 }
 
-static void display_menu_ingame_button(ingame_menu_t *menu, sfRenderWindow *window)
+static void display_menu_ingame_button(ingame_menu_t *menu,
+    sfRenderWindow *window)
 {
     sfRenderWindow_drawSprite(window, menu->resume->sprite, NULL);
     sfRenderWindow_drawSprite(window, menu->save->sprite, NULL);
@@ -37,14 +38,14 @@ static void manage_menu_ingame_button(ingame_menu_t *menu, rpg_t *rpg)
         menu->save->state = NONE;
     if (rpg->save_scene->button_list == NULL)
         menu->load_save->state = BLOCK;
-    if (menu->load_save->state == BLOCK && rpg->save_scene->button_list != NULL)
+    if (menu->load_save->state == BLOCK &&
+        rpg->save_scene->button_list != NULL)
         menu->load_save->state = NONE;
     update_button(menu->resume, &(rpg->mouse_data), rpg);
     update_button(menu->save, &(rpg->mouse_data), rpg);
     update_button(menu->load_save, &(rpg->mouse_data), rpg);
     update_button(menu->param, &(rpg->mouse_data), rpg);
     update_button(menu->quit, &(rpg->mouse_data), rpg);
-
 }
 
 void manage_ingame_menu(rpg_t *rpg)
@@ -54,7 +55,7 @@ void manage_ingame_menu(rpg_t *rpg)
         rpg->ingame_menu->from = rpg->scene;
         rpg->scene = INGAME_MENU;
         set_view(rpg, rpg->ingame_menu->background,
-                 rpg->ingame_menu->background);
+            rpg->ingame_menu->background);
     }
     if (rpg->scene == INGAME_MENU)
         menu_ingame(rpg);
