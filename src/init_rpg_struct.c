@@ -107,6 +107,7 @@ rpg_t *create_rpg_struct(void)
     rpg->time = 0;
     if (init_ressources(rpg->font_tab, rpg->text_tab, rpg))
         return NULL;
+    rpg->ingame_menu = create_menu_ingame_struct(rpg);
     rpg->clock = sfClock_create();
     set_all_font(rpg->font_tab);
     rpg->window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);

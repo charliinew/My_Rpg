@@ -31,6 +31,11 @@ static void display_menu_ingame_button(ingame_menu_t *menu, sfRenderWindow *wind
 
 static void manage_menu_ingame_button(ingame_menu_t *menu, rpg_t *rpg)
 {
+    if (menu->from == TUTO)
+        menu->save->state = BLOCK;
+    if (rpg->save_scene->button_list == NULL ||
+        rpg->save_scene->button_list->child == NULL)
+        menu->load_save->state = BLOCK;
     update_button(menu->resume, &(rpg->mouse_data), rpg);
     update_button(menu->save, &(rpg->mouse_data), rpg);
     update_button(menu->load_save, &(rpg->mouse_data), rpg);

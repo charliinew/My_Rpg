@@ -34,6 +34,8 @@ void which_scene(rpg_t *rpg)
         manage_switch_fade(rpg->end, rpg);
     if (rpg->scene == SAVE)
         load_page(rpg);
+    if (rpg->scene == INGAME_MENU)
+        menu_ingame(rpg);
 }
 
 void init_clock(rpg_t *rpg)
