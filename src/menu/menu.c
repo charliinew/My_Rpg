@@ -20,22 +20,18 @@ static void display_menu_back(rpg_t *rpg)
     }
 }
 
-static void display_menu_button_next(menu_t *menu, sfRenderWindow *window,
-    sfVector2f ratio)
+static void display_menu_button_next(menu_t *menu, sfRenderWindow *window)
 {
     sfRenderWindow_drawSprite(window, menu->quit->sprite, NULL);
 }
 
-static void display_menu_button(menu_t *menu, sfRenderWindow *window,
-    sfVideoMode view)
+static void display_menu_button(menu_t *menu, sfRenderWindow *window)
 {
-    sfVector2f ratio = {view.width / 1920.0, view.height / 1080.0};
-
     sfRenderWindow_drawSprite(window, menu->play->sprite, NULL);
     sfRenderWindow_drawSprite(window, menu->new->sprite, NULL);
     sfRenderWindow_drawSprite(window, menu->saves->sprite, NULL);
     sfRenderWindow_drawSprite(window, menu->param->sprite, NULL);
-    display_menu_button_next(menu, window, ratio);
+    display_menu_button_next(menu, window);
 }
 
 static void manage_menu_button(menu_t *menu, rpg_t *rpg)
@@ -51,5 +47,5 @@ void start_menu(rpg_t *rpg)
 {
     display_menu_back(rpg);
     manage_menu_button(rpg->start_menu, rpg);
-    display_menu_button(rpg->start_menu, rpg->window, rpg->params->view);
+    display_menu_button(rpg->start_menu, rpg->window);
 }

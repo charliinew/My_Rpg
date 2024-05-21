@@ -7,14 +7,14 @@
 
 #ifndef RPG_H
     #define RPG_H
-    #include "button.h"
     #include "lib.h"
     #include "menu.h"
     #include "params.h"
 
 typedef enum font_type_e {
     PIXEL = 0,
-    VINQUE_E
+    VINQUE_E,
+    FONT_COUNT
 } font_type_t;
 
 typedef enum texture_type_e {
@@ -97,6 +97,21 @@ typedef enum texture_type_e {
     BUTTON_PLUS_PRESSED_E,
     BUTTON_MINUS_E,
     BUTTON_MINUS_PRESSED_E,
+    INVENTORY_TEXT,
+    INVENTORY_SLOT_TEXT,
+    BACK_INVENTORY_HERO,
+    CAMP_BOSS_TEXT,
+    MINE_BOSS_TEXT,
+    CASTLE_BOSS_TEXT,
+    ARENE_TEXT,
+    ARENE_COL_TEXT,
+    EXPLO_TEXT,
+    ARROW_TEXT,
+    DYNA_TEXT,
+    SHIELD_TEXT,
+    HEARTH_POTION_TEXT,
+    HELMET_TEXT,
+    FIRE_TEXT,
     MINE_TEXT
 } texture_type_t;
 
@@ -106,6 +121,7 @@ typedef enum scene_e {
     CAMP,
     VILLAGE,
     MINE,
+    TUTO,
     SAVE,
     MENU,
     PARAMS,
@@ -118,9 +134,10 @@ typedef struct rpg_s {
     biome_t *biome[5];
     menu_t *start_menu;
     param_t *params;
+    tuto_t *tuto;
     save_scene_t *save_scene;
     mouse_data_t mouse_data;
-    quest_t quest_tab[3];
+    quest_t quest_tab[4];
     int scene;
     sfClock *clock;
     sfEvent event;
@@ -128,8 +145,10 @@ typedef struct rpg_s {
     bool key_state[256];
     int second;
     float time;
-    sfTexture *text_tab[100];
-    sfFont *font_tab[1];
+    sfTexture *text_tab[MINE_TEXT + 1];
+    sfFont *font_tab[FONT_COUNT];
+    inventory_t inventory;
+    game_over_t *end;
     sfRenderWindow *window;
 } rpg_t;
 
@@ -199,6 +218,7 @@ rpg_t *create_rpg_struct(void);
 void manage_heros(heros_t *heros, rpg_t *rpg);
 void set_all_texture(sfTexture **text_tab);
 void set_all_font(sfFont **font_tab);
+int check_asset(sfTexture **text_tab, sfFont **font_tab);
 
 /**EVENT**/
 void manage_event(rpg_t *rpg);
@@ -219,4 +239,10 @@ void entity_loop(
 /**QUEST_GIVER**/
 void manage_quest_giver(
     quest_t *quest_tab, quest_giver_t *quest_g, rpg_t *rpg);
+void check_open_portal(rpg_t *rpg);
+void check_end_quest(rpg_t *rpg);
+
+/**TUTO**/
+void tuto_loop(rpg_t *rpg);
+void manage_skip_button(button_t *button, rpg_t *rpg);
 #endif

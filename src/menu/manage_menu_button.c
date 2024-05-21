@@ -14,7 +14,7 @@ void play_button(void *data, button_t *)
 
     if (rpg->save_scene->button_list == NULL ||
         rpg->save_scene->button_list->child == NULL) {
-        rpg->scene = PLAIN;
+        rpg->scene = TUTO;
         set_view(rpg, rpg->heros->npc->entity->sprite, wich_back(rpg));
         return;
     }
@@ -29,7 +29,7 @@ void new_button(void *data, button_t *)
 {
     rpg_t *rpg = (rpg_t *)data;
 
-    rpg->scene = PLAIN;
+    rpg->scene = TUTO;
     set_view(rpg, rpg->heros->npc->entity->sprite, wich_back(rpg));
 }
 

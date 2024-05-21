@@ -7,19 +7,33 @@
 
 #include "rpg.h"
 
+static void biome_scene(rpg_t *rpg)
+{
+    biome_loop(rpg, rpg->biome[rpg->scene]);
+    manage_heros_bar(rpg->heros, rpg->window);
+    quest_displayer(rpg->quest_tab, rpg->window);
+    manage_inventory(rpg);
+}
+
 void which_scene(rpg_t *rpg)
 {
-    if (rpg->scene >= PLAIN && rpg->scene <= MINE) {
-        biome_loop(rpg, rpg->biome[rpg->scene]);
-        manage_heros_bar(rpg->heros, rpg->window);
-        quest_displayer(rpg->quest_tab, rpg->window);
-    }
+    if (rpg->scene >= PLAIN && rpg->scene <= MINE)
+        biome_scene(rpg);
     if (rpg->scene == SAVE)
         load_page(rpg);
     if (rpg->scene == MENU)
         start_menu(rpg);
     if (rpg->scene == PARAMS)
         params_page(rpg);
+    if (rpg->scene == TUTO) {
+        tuto_loop(rpg);
+        manage_heros_bar(rpg->heros, rpg->window);
+    } else
+        update_game_over(rpg->end, rpg);
+    if (rpg->end->active == TUTO_FADE)
+        manage_switch_fade(rpg->end, rpg);
+    if (rpg->scene == SAVE)
+        load_page(rpg);
 }
 
 void init_clock(rpg_t *rpg)
@@ -50,7 +64,7 @@ void rpg(rpg_t *rpg)
         init_clock(rpg);
         rpg->mouse_data.pos = recalculate_mouse_position(
             rpg->window, sfRenderWindow_getView(rpg->window));
-        sfRenderWindow_clear(rpg->window, sfWhite);
+        sfRenderWindow_clear(rpg->window, sfBlack);
         which_scene(rpg);
         sfRenderWindow_display(rpg->window);
     }
