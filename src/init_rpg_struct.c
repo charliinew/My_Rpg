@@ -6,6 +6,8 @@
 */
 
 #include "rpg.h"
+#include <SFML/Graphics/Font.h>
+#include <SFML/Graphics/Texture.h>
 
 void destroy_save_list(rpg_t *rpg)
 {
@@ -60,17 +62,37 @@ rpg_t *init_rpg_next(rpg_t *rpg)
     return (rpg);
 }
 
+static bool init_ressources(sfFont **font_tab, sfTexture **texture_tab,
+    rpg_t *rpg)
+{
+    set_all_font(font_tab);
+    set_all_texture(texture_tab);
+    if (!check_asset(texture_tab, font_tab))
+        return false;
+    for (int i = 0; i <= MINE_TEXT; i++) {
+        if (texture_tab[i])
+            sfTexture_destroy(texture_tab[i]);
+    }
+    for (int i = 0; i < FONT_COUNT; i++) {
+        if (font_tab[i])
+            sfFont_destroy(font_tab[i]);
+    }
+    free(rpg);
+    return true;
+}
+
 rpg_t *create_rpg_struct(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
     sfVideoMode mode = {1920, 1080, 32};
 
+    if (init_ressources(rpg->font_tab, rpg->text_tab, rpg))
+        return NULL;
     rpg->clock = sfClock_create();
     rpg->scene = TUTO;
     set_all_font(rpg->font_tab);
     rpg->window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
     sfRenderWindow_setPosition(rpg->window, (sfVector2i){0, 0});
-    set_all_texture(rpg->text_tab);
     rpg->heros = init_heros(rpg->text_tab, rpg->font_tab);
     for (int i = 0; i < 256; i++)
         rpg->key_state[i] = false;

@@ -165,6 +165,7 @@ rpg_t *create_rpg_struct(void);
 void manage_heros(heros_t *heros, rpg_t *rpg);
 void set_all_texture(sfTexture **text_tab);
 void set_all_font(sfFont **font_tab);
+int check_asset(sfTexture **text_tab, sfFont **font_tab);
 
 /**EVENT**/
 void manage_event(rpg_t *rpg);
