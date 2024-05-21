@@ -79,6 +79,14 @@ void set_all_texture_next_three(sfTexture **text_tab)
     text_tab[FIRE_TEXT] = sfTexture_createFromFile(FIRE_PATH, NULL);
 }
 
+static void set_all_texture_next_four(sfTexture **text_tab)
+{
+    text_tab[HEARTH_POTION_TEXT] =
+    sfTexture_createFromFile(HEARTH_POTION_PATH, NULL);
+    text_tab[HELMET_TEXT] = sfTexture_createFromFile(HELMET_PATH, NULL);
+    text_tab[BACK_INVENTORY_HERO] = sfTexture_createFromFile(BACK_HERO, NULL);
+}
+
 void set_all_texture(sfTexture **text_tab)
 {
     text_tab[VILLAGE_SPRITE_TEXT] = sfTexture_createFromFile(
@@ -97,6 +105,7 @@ void set_all_texture(sfTexture **text_tab)
     text_tab[BAG_TEXT] = sfTexture_createFromFile(BAG_PATH, NULL);
     text_tab[BLOOD_TEXT] = sfTexture_createFromFile(BLOOD_PATH, NULL);
     text_tab[COIN_TEXT] = sfTexture_createFromFile(COIN_PATH, NULL);
+    set_all_texture_next_four(text_tab);
     set_all_texture_next_three(text_tab);
     set_all_texture_next_two(text_tab);
     set_all_texture_next(text_tab);
