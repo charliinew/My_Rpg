@@ -32,6 +32,14 @@ void load_save_button(void *data, button_t *)
     rpg->scene = SAVE;
 }
 
+void param_ingame_button(void *data, button_t *)
+{
+    rpg_t *rpg = (rpg_t *)data;
+
+    rpg->scene = PARAMS;
+    rpg->params->from = INGAME_MENU;
+}
+
 void quit_game_button(void *data, button_t *)
 {
     rpg_t *rpg = (rpg_t *)data;

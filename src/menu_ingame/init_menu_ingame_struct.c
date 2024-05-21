@@ -41,7 +41,7 @@ static void set_button(sfTexture **text_tab, ingame_menu_t *menu)
     init_action_button(&load_save_button, NULL, NULL, menu->load_save);
     menu->param = create_button(text_tab, (int[5]){PARAM_E, PARAM_PRESSED_E,
         PARAM_HOVER_E, PARAM_E, -1});
-    init_action_button(&param_button, NULL, NULL, menu->param);
+    init_action_button(&param_ingame_button, NULL, NULL, menu->param);
     menu->quit = create_button(text_tab, (int[5]){QUIT_E, QUIT_PRESSED_E,
         QUIT_HOVER_E, QUIT_E, -1});
     init_action_button(&quit_game_button, NULL, NULL, menu->quit);
@@ -56,6 +56,8 @@ ingame_menu_t *create_menu_ingame_struct(rpg_t *rpg)
         return (NULL);
     menu->pos = MENU_1;
     menu->background = sfSprite_create();
+    sfSprite_setPosition(menu->background, (sfVector2f){0, 0});
+    sfSprite_setTexture(menu->background, rpg->text_tab[MENU_1], sfTrue);
     set_button(rpg->text_tab, menu);
     return menu;
 }
