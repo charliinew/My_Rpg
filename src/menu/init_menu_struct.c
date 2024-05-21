@@ -36,9 +36,6 @@ static void set_background(sfTexture **text_tab)
 
 static void create_menu_button(sfTexture **text_tab, menu_t *menu)
 {
-    menu->play = create_button(text_tab, (int[5]){PLAY_E, PLAY_PRESSED_E,
-        PLAY_HOVER_E, PLAY_E, -1});
-    init_action_button(&play_button, NULL, NULL, menu->play);
     menu->new = create_button(text_tab, (int[5]){NEW_E, NEW_PRESSED_E,
         NEW_HOVER_E, NEW_E, -1});
     init_action_button(&new_button, NULL, NULL, menu->new);
@@ -51,21 +48,12 @@ static void create_menu_button(sfTexture **text_tab, menu_t *menu)
     menu->quit = create_button(text_tab, (int[5]){QUIT_E, QUIT_PRESSED_E,
         QUIT_HOVER_E, QUIT_E, -1});
     init_action_button(&quit_button, NULL, NULL, menu->quit);
-
     sfSprite_setPosition(menu->quit->sprite, (sfVector2f){847.0,
-                                                895.0});
-
-    sfSprite_setPosition(menu->play->sprite,
-                         (sfVector2f){810.0, 400.0});
-
-    sfSprite_setPosition(menu->new->sprite,
-                         (sfVector2f){847.0, 655.0});
-
-    sfSprite_setPosition(menu->saves->sprite,
-                         (sfVector2f){847.0, 735.0});
-
-    sfSprite_setPosition(menu->param->sprite,
-                         (sfVector2f){847.0, 815.0});
+        895.0});
+    sfSprite_setPosition(menu->play->sprite, (sfVector2f){810.0, 400.0});
+    sfSprite_setPosition(menu->new->sprite, (sfVector2f){847.0, 655.0});
+    sfSprite_setPosition(menu->saves->sprite, (sfVector2f){847.0, 735.0});
+    sfSprite_setPosition(menu->param->sprite, (sfVector2f){847.0, 815.0});
 }
 
 static void set_button(sfTexture **text_tab, menu_t *menu)
@@ -74,7 +62,8 @@ static void set_button(sfTexture **text_tab, menu_t *menu)
     text_tab[PLAY_PRESSED_E] = sfTexture_createFromFile(PLAY_PRESSED, NULL);
     text_tab[PLAY_HOVER_E] = sfTexture_createFromFile(PLAY_HOVER, NULL);
     text_tab[B_SAVE_E] = sfTexture_createFromFile(B_SAVE, NULL);
-    text_tab[B_SAVE_PRESSED_E] = sfTexture_createFromFile(B_SAVE_PRESSED, NULL);
+    text_tab[B_SAVE_PRESSED_E] = sfTexture_createFromFile(B_SAVE_PRESSED,
+        NULL);
     text_tab[B_SAVE_HOVER_E] = sfTexture_createFromFile(B_SAVE_HOVER, NULL);
     text_tab[NEW_E] = sfTexture_createFromFile(NEW, NULL);
     text_tab[NEW_PRESSED_E] = sfTexture_createFromFile(NEW_PRESSED, NULL);
@@ -85,6 +74,9 @@ static void set_button(sfTexture **text_tab, menu_t *menu)
     text_tab[QUIT_E] = sfTexture_createFromFile(QUIT, NULL);
     text_tab[QUIT_PRESSED_E] = sfTexture_createFromFile(QUIT_PRESSED, NULL);
     text_tab[QUIT_HOVER_E] = sfTexture_createFromFile(QUIT_HOVER, NULL);
+    menu->play = create_button(text_tab, (int[5]){PLAY_E, PLAY_PRESSED_E,
+        PLAY_HOVER_E, PLAY_E, -1});
+    init_action_button(&play_button, NULL, NULL, menu->play);
     create_menu_button(text_tab, menu);
 }
 

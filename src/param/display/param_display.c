@@ -25,7 +25,8 @@ void display_param_button_display(rpg_t *rpg, display_t *display)
             NULL);
         sfRenderWindow_drawSprite(rpg->window, display->r1280x720->sprite,
             NULL);
-        sfRenderWindow_drawSprite(rpg->window, display->r850x480->sprite, NULL);
+        sfRenderWindow_drawSprite(rpg->window,
+            display->r850x480->sprite, NULL);
         sfRenderWindow_drawSprite(rpg->window, display->selection, NULL);
     }
 }

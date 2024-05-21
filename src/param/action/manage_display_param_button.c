@@ -49,9 +49,8 @@ void r1920x1080_p(void *data, button_t *)
 
     rpg->params->view = (sfVideoMode){1920, 1080, 32};
     sfSprite_setPosition(rpg->params->display->selection,
-                         (sfVector2f){480, 235});
+        (sfVector2f){480, 235});
     sfRenderWindow_setSize(rpg->window, (sfVector2u){1920, 1080});
-//    sfSprite_setScale(rpg->params->display->selection, (sfVector2f){1, 1});
 }
 
 void r1280x720_p(void *data, button_t *)
@@ -60,9 +59,8 @@ void r1280x720_p(void *data, button_t *)
 
     rpg->params->view = (sfVideoMode){1280, 720, 32};
     sfSprite_setPosition(rpg->params->display->selection,
-                         (sfVector2f){710, 235});
+        (sfVector2f){710, 235});
     sfRenderWindow_setSize(rpg->window, (sfVector2u){1280, 720});
-//    sfSprite_setScale(rpg->params->display->selection, (sfVector2f){2 / 3, 2 / 3});
 }
 
 void r850x480_p(void *data, button_t *)
@@ -71,8 +69,6 @@ void r850x480_p(void *data, button_t *)
 
     rpg->params->view = (sfVideoMode){853, 480, 32};
     sfSprite_setPosition(rpg->params->display->selection,
-                         (sfVector2f){940, 235});
+        (sfVector2f){940, 235});
     sfRenderWindow_setSize(rpg->window, (sfVector2u){853, 480});
-//    sfSprite_setScale(rpg->params->display->selection, (sfVector2f){0.4442,
-//        0.4442});
 }
