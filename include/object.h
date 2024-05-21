@@ -13,11 +13,14 @@ typedef struct heros_s heros_t;
 typedef struct rpg_s rpg_t;
 
     #define HEARTH_POTION_PATH "MF_Items/hearth_potion.png"
+    #define HELMET_PATH "MF_Items/Helmet.png"
 
 typedef enum object_drop_e {
     DEATH = 0,
     NOTHING,
     HEARTH_POTION,
+    HELMET,
+    OBJ_COUNT
 } object_drop_t;
 
 typedef enum object_usage_e {
@@ -42,8 +45,8 @@ extern obj_template_t obj_tab[];
 
 typedef struct back_obj_s {
     sfSprite *sprite;
-    int id;
-    object_drop_t type;
+    object_usage_t usage;
+    object_drop_t id;
     struct back_obj_s *next;
     struct back_obj_s *prev;
     void *data;

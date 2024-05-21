@@ -26,6 +26,9 @@ obj_template_t obj_tab[] = {
         (sfVector2f){1.f, 1.f}, NO_USAGE},
 
     {HEARTH_POTION_TEXT, HEARTH_POTION_TEXT, 120, true, false,
-        (sfVector2i){1, 1}, (sfVector2i){0, 0}, (sfVector2f){2.2, 2.2},
-        CONSOMABLE}
+        (sfVector2i){1, 1}, (sfVector2i){0, 0}, (sfVector2f){2.5, 2.5},
+        CONSOMABLE},
+
+    {HELMET_TEXT, HELMET_TEXT, 120, true, false, (sfVector2i){1, 1},
+        (sfVector2i){0, 0}, (sfVector2f){2.5, 2.5}, EQUIPABLE}
 };

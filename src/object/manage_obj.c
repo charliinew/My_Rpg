@@ -46,7 +46,7 @@ void delete_from_list(back_obj_t *obj, back_obj_t **list)
 
 bool add_to_inventory(back_obj_t **inventory, front_obj_t *obj, rpg_t *rpg)
 {
-    button_t *slot = get_free_slot(&rpg->inventory);
+    button_t *slot = get_free_slot(rpg->inventory.slot, NUM_SLOT);
 
     if (slot == NULL)
         return true;

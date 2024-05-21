@@ -82,6 +82,8 @@ static void set_all_texture_next_four(sfTexture **text_tab)
 {
     text_tab[HEARTH_POTION_TEXT] =
     sfTexture_createFromFile(HEARTH_POTION_PATH, NULL);
+    text_tab[HELMET_TEXT] = sfTexture_createFromFile(HELMET_PATH, NULL);
+    text_tab[BACK_INVENTORY_HERO] = sfTexture_createFromFile(BACK_HERO, NULL);
 }
 
 void set_all_texture(sfTexture **text_tab)
