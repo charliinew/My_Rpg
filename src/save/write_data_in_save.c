@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static bool is_champ(rpg_t *rpg, save_bot_t *save_bot, npc_t *curr, int j)
+static void is_champ(rpg_t *rpg, save_bot_t *save_bot, npc_t *curr, int j)
 {
     if (curr != rpg->biome[CAMP]->boss &&
         curr != rpg->biome[CASTLE]->boss &&
