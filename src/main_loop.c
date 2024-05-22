@@ -18,8 +18,10 @@ static void biome_scene(rpg_t *rpg)
 
 void which_scene(rpg_t *rpg)
 {
-    if (rpg->scene >= PLAIN && rpg->scene <= MINE)
+    if (rpg->scene >= PLAIN && rpg->scene <= MINE) {
         biome_scene(rpg);
+        update_game_over(rpg->end, rpg);
+    }
     if (rpg->scene == SAVE)
         load_page(rpg);
     if (rpg->scene == MENU)
@@ -63,6 +65,7 @@ void rpg(rpg_t *rpg)
             manage_event(rpg);
         }
         init_clock(rpg);
+        fetch_last_frame(rpg);
         rpg->mouse_data.pos = recalculate_mouse_position(
             rpg->window, sfRenderWindow_getView(rpg->window));
         sfRenderWindow_clear(rpg->window, sfBlack);
