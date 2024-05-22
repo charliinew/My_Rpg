@@ -31,6 +31,9 @@ void which_scene(rpg_t *rpg)
     if (rpg->scene == TUTO) {
         tuto_loop(rpg);
         manage_heros_bar(rpg->heros, rpg->window);
+        manage_inventory(rpg);
+    } else
+        update_game_over(rpg->end, rpg);
     }
     if (rpg->end->active == TUTO_FADE)
         manage_switch_fade(rpg->end, rpg);
