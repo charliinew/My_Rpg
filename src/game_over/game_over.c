@@ -103,6 +103,11 @@ void update_game_over(game_over_t *game, rpg_t *rpg)
     update_rect(game, rpg);
     if (game->alpha >= 255)
         update_text(game, rpg);
+    if (rpg->key_state[sfKeySpace] && rpg->save_scene->button_list != NULL) {
+        game->active = OFF;
+        clean_entity_list(rpg->biome[rpg->scene]);
+        save_button_released(rpg, rpg->save_scene->button_list);
+    }
     display_game_over(game, rpg);
 }
 
