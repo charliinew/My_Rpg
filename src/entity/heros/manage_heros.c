@@ -74,7 +74,7 @@ void manage_heros(heros_t *heros, rpg_t *rpg)
         lunch_end(rpg);
     manage_skill(heros, rpg);
     manage_movements(rpg);
-    manage_heros_attack(heros, rpg->key_state);
+    manage_heros_attack(heros, rpg->key_state, rpg);
     if (heros->can_interact)
         manage_interact(heros, rpg->window);
     recovery_stamina(heros, rpg->time);
