@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include <SFML/Graphics/Texture.h>
 
 void set_all_texture_next(sfTexture **text_tab)
 {
@@ -174,6 +175,18 @@ static void set_all_texture_eight(sfTexture **text_tab)
     sfTexture_createFromFile(BLUE_PLUS_PRESSED, NULL);
     text_tab[PLUS_HOVER_TEXT] = sfTexture_createFromFile(PLUS_HOVER, NULL);
     text_tab[PLUS_BLOCK_TEXT] = sfTexture_createFromFile(DISABLED_PLUS, NULL);
+    text_tab[RUN_RELEASED_TEXT] = sfTexture_createFromFile(RUN_RELEASED, NULL);
+    text_tab[RUN_PRESSED_TEXT] = sfTexture_createFromFile(RUN_PRESSED, NULL);
+    text_tab[RUN_HOVER_TEXT] = sfTexture_createFromFile(RUN_HOVER, NULL);
+    text_tab[FIRE_RELEASED_TEXT] = sfTexture_createFromFile(FIRE_RELEASED,
+    NULL);
+    text_tab[FIRE_PRESSED_TEXT] = sfTexture_createFromFile(FIRE_PRESSED, NULL);
+    text_tab[FIRE_HOVER_TEXT] = sfTexture_createFromFile(FIRE_HOVER, NULL);
+    text_tab[SHIELD_RELEASED_TEXT] = sfTexture_createFromFile(SHIELD_RELEASED,
+    NULL);
+    text_tab[SHIELD_PRESSED_TEXT] = sfTexture_createFromFile(SHIELD_PRESSED,
+    NULL);
+    text_tab[SHIELD_HOVER_TEXT] = sfTexture_createFromFile(SHIELD_HOVER, NULL);
 }
 
 void set_all_texture(sfTexture **text_tab)
